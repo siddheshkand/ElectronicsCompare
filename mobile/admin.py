@@ -4,6 +4,6 @@ from mobile.models import Mobile
 
 
 class MobileAdmin(admin.ModelAdmin):
-    list_display = ('title', 'price', 'description')
+    list_display = ('title', 'price', 'description', 'price')
 
 admin.site.register(Mobile, MobileAdmin)

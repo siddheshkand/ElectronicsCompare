@@ -63,7 +63,7 @@
             {% for mobile in mobiles %}
             <div class="col-4">
 
-                <div class="card text-white bg-primary mb-3">
+                <div class="card text-white bg-primary mb-3 h-100">
                     <div class="card-header">Only : {{ mobile.price }}</div>
                     <div class="card-body">
                         <h4 class="card-title">{{ mobile.title }}</h4>
@@ -72,6 +72,10 @@
                         <p class="card-text">
                             {{ mobile.description }}
                         </p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-danger" type="submit" name="delete" value="{{ mobile.id }}">Delete</button>
+                        </form>
                     </div>
                 </div>
 

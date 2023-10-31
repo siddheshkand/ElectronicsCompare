@@ -66,6 +66,12 @@ def get_latest_price(url):
 def hello(request):
     data = {'mobiles':Mobile.objects.all()}
     if request.method == 'POST':
+        if 'delete' in request.POST:
+            mobile_id = request.POST['delete']
+            mobile = Mobile.objects.get(pk=mobile_id)
+            mobile.delete()
+            return render(request,'index.html',data)
+        
         url = request.POST.get('url')
         get_latest_price(url)
         data =  {'add':True,'mobiles':Mobile.objects.all()}
